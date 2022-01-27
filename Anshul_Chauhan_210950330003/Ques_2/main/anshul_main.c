@@ -10,7 +10,7 @@ TimerHandle_t handle_timer;
 
 void Timer_Callback(TimerHandle_t xTimer)
 {
-    printf("This is the callback function of a one-shot software timer triggered from the task 'Task_3'.\n");
+    printf("\nThis is the callback function of a one-shot software timer triggered from the task 'T3'.\n");
 }
 
 void T1(void *pvParameters)
@@ -52,11 +52,5 @@ void app_main()
     xTaskCreate(T2, "T2", 1024, NULL, 6, NULL);
     xTaskCreate(T3, "T3", 2048, NULL, 7, NULL);
     
-    int i = 0;
-    while(1)
-    {
-        printf("%d000 ms\n\n", i);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-        i++;        
-    }             
+    printf("Main task.\n");           
 }
